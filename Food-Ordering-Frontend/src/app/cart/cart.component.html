@@ -1,0 +1,41 @@
+<div *ngIf="cartEmpty">
+<table class="table">
+<thead class="thead">
+<tr>
+<th scope="col">Image</th>
+<th scope="col">Product Name</th>
+<th scope="col">Quantity</th>
+<th scope="col">Price</th>
+<th scope="col">Action</th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let obj of order">
+<td ><img src={{obj.foodItem.image}} class="image" alt="image"></td>
+<td>{{obj.foodItem.name}}</td>
+<td><input type="number" [(ngModel)]="obj.quantity"></td>
+<td>{{obj.price}}​​​​​​​​</td>
+<td><button style="color: red; " (click)="deleteItem(obj.id)">Delete</button>
+    <button style="color: green; " (click)="updateItem(obj)">Update</button></td>
+ 
+</tr>
+ 
+</tbody>
+</table>
+<hr>
+<div style="text-align: center ;">
+<button type="button" class="cart-btn" [routerLink]="['/checkOut']">Proceed to buy</button>
+ 
+</div>
+{{responseMessage}}
+
+
+
+</div>
+
+<div *ngIf="!cartEmpty">
+
+   <img  class="image1" src="https://www.eei.edu/wp-content/uploads/2017/03/cart-empty-300x195.png">
+    
+
+</div>

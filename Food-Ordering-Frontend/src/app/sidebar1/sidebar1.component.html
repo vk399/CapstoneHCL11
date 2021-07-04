@@ -1,0 +1,60 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=block" rel="stylesheet">
+
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+    <br>
+    <mat-toolbar><a href="#"><img
+          src="https://media.istockphoto.com/vectors/restaurant-icon-vector-id1038356020?k=6&m=1038356020&s=612x612&w=0&h=4wEuIpSu4PyBkiDoUlZUlsUKvLr32wufop8Q9VihiNM="
+          style=" width: 80px; height: 60px;  border-radius: 25px; 
+      object-fit: cover;" alt=""></a></mat-toolbar>
+       <br>
+       <br>  
+    <mat-nav-list *ngFor="let r of res">
+      <a href="/foodItems/{{r.resId}}"><button mat-button color="primary">{{r.restaurantName}}</button></a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" style="justify-content: space-around;">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+
+      <a href="#" style="color: white; text-decoration: none;">
+        <div class="welcometitle">
+          <h2> Rest Easy</h2>
+        </div>
+      </a>
+      
+      <div>
+
+        <span class="span1">{{0+total_price | currency:'INR'}}</span>
+        <span class="span2">{{0+total_quantity}}</span>
+
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cart-fill"
+            viewBox="0 0 20 20">
+            <path [routerLink]="['/cart']"
+              d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+            </svg>
+      </div>
+
+      <ng-container *ngIf="enableProp != 1; else elseBlock">
+       
+        <button class="btn-custom" routerLink="/loginForm">Login</button>
+    </ng-container>
+    <ng-template #elseBlock>
+        <p style="color: white; padding-top:4vh; padding-right: 0px;">Welcome: {{loginSuccess}}</p>
+        <button class="btn-custom" routerLink="" (click)="onLogout()">Logout</button>
+    </ng-template>
+
+      <button type="button" class="btn-custom" routerLink="/chatBot">Chat</button>
+      <br>
+     </mat-toolbar>
+    <br>
+
+    <router-outlet></router-outlet>
+ 
+   </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,57 @@
+table{
+    background-color: rgb(241, 255, 254);
+    border-radius: 5px;
+    margin: auto;
+    padding:0 10% ;
+}
+.table{
+    margin: auto;
+    padding: 10%;
+}
+.thead{
+    background-color: rgb(108, 236, 230)
+}
+  .cart-btn{
+        padding: 5px 10px;
+        border: 1px white;
+        border-radius: 5px;
+        font-size: medium;
+        background-color: lightseagreen;
+        color: white;
+        }
+
+.image{
+    height: 50px;
+    width:50px;
+}
+
+.inc{
+  color: rgb(89, 0, 255);
+}
+.dec{
+    color:red;
+}
+
+.image1{
+
+        height: 400px;
+        width:400px;
+        background-color: rgb(178, 144, 32);
+        animation-name: change;
+        position: relative;
+        animation-duration:70s;
+       animation-iteration-count:infinite;
+   
+ }
+
+ 
+ @media only screen and (min-width:500px){
+  
+    @keyframes change{
+        from{background-image: "https://www.eei.edu/wp-content/uploads/2017/03/cart-empty-300x195.png";left: 0%;top: 0%;}
+        25%{background-image: "https://www.eei.edu/wp-content/uploads/2017/03/cart-empty-300x195.png";left: 80%;top:0%;}
+       50%{background-image: "https://www.eei.edu/wp-content/uploads/2017/03/cart-empty-300x195.png";left: 40%;top:40%;}
+       75%{background-image: "https://www.eei.edu/wp-content/uploads/2017/03/cart-empty-300x195.png";left: 80%;top:80%;}
+        to{background-image: "https://www.eei.edu/wp-content/uploads/2017/03/cart-empty-300x195.png";left:0%;top:80%;}
+   }
+}

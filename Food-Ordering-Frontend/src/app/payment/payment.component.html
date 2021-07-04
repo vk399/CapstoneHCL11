@@ -1,0 +1,76 @@
+<form #checkOutForm="ngForm" (ngSubmit)="checkOutData()">
+<div class="sub-container">
+<h3>CreditCard Details</h3>
+<div class="form-group">
+  <label for="cardType">CardType:</label>
+  <select name="cardType">
+    <option value="select" selected disabled>Select</option>
+    <option value="Visa">Visa</option>
+    <option value="MasterCard">MasterCard</option>
+  </select>
+</div>
+<div class="form-group">
+  <label for="nameOnCard">Name on Card:</label>
+  <input type="text" class="form-control" placeholder="Enter Name On Card" name="nameOnCard"
+    [(ngModel)]="payment.nameOnCard" required #nameOnCard="ngModel"
+    [class.is-invalid]="nameOnCard.invalid && nameOnCard.touched" minlength="2">
+  <small class="text-danger" [class.d-none]="nameOnCard.valid || nameOnCard.untouched">NameOnCard is required
+    field</small>
+  <div *ngIf="nameOnCard.errors?.minlength">Name on Card must be at least 2 characters long. </div>
+</div>
+
+<div class="form-group">
+  <label for="cardNumber">Card Number:</label>
+  <input type="text" class="form-control" placeholder="Enter CardNumber" name="cardNumber" pattern="^[0-9]*$"
+    [(ngModel)]="payment.cardNumber" required minlength="16" #cardNumber="ngModel"
+    [class.is-invalid]="cardNumber.invalid && cardNumber.touched">
+  <small class="text-danger" [class.d-none]="cardNumber.valid || cardNumber.untouched">CardNumber is required
+    field</small>
+  <div *ngIf="cardNumber.errors?.minlength || cardNumber.errors?.pattern">CardNumber must be at least 6 digits.
+  </div>
+</div>
+<div class="form-group">
+  <label for="securityCode">SecurityCode:</label>
+  <input type="text" class="form-control" placeholder="Enter SecurityCode" name="securityCode" pattern="^[0-9]*$"
+    [(ngModel)]="payment.securityCode" required minlength="3" #securityCode="ngModel"
+    [class.is-invalid]="securityCode.invalid && securityCode.touched">
+  <small class="text-danger" [class.d-none]="securityCode.valid || securityCode.untouched">SecurityCode is
+    required
+    field</small>
+  <div *ngIf="securityCode.errors?.minlength || securityCode.errors?.pattern">SecurityCode must be at least 6
+    digits. </div>
+</div>
+<div class="form-group">
+  <label for="expiryMonth">ExpiryMonth:</label>
+  <select id="month" name="month">
+    <option value="select" selected disabled>Select</option>
+    <option value="01">January</option>
+    <option value="02">February</option>
+    <option value="03">March</option>
+    <option value="04">April</option>
+    <option value="05">May</option>
+    <option value="06">June</option>
+    <option value="07">July</option>
+    <option value="08">August</option>
+    <option value="09">September</option>
+    <option value="10">October</option>
+    <option value="11">November</option>
+    <option value="12">December</option>
+  </select>
+</div>
+<div class="form-group">
+  <label for="expiryYear">ExpiryYear:</label>
+  <select id="year" name="year">
+    <option value="select" selected disabled>Select</option>
+    <option value="i" *ngFor="let i of expiryYear">{{i}}</option>
+ </select>
+
+</div>
+
+<br><br>
+<button [disabled]="checkOutForm.form.invalid" type="submit" class="btn btn-info"
+style="margin-left: 3%;">Submit</button>&emsp;
+</div>
+</form>
+
+
