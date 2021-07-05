@@ -1,4 +1,10 @@
+<div class="form-group row" style="justify-content: space-around;">
+  <div class="col-xs-2" style="padding: 0px 0 15px 0;">
+    <input type="text" size="50%" class="form-control" placeholder="Search for fooditem" [(ngModel)]="searchText"
+      style="padding: 0 50px;">
+  </div>
 
+</div>
 <div class="row row-cols-1 row-cols-md-3 g-4">
   <div class="col" *ngFor="let obj of items | filter:searchText">
     <div class="card">
@@ -11,4 +17,3 @@
     </div>
   </div>
 </div>
-

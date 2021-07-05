@@ -14,12 +14,19 @@ table{
   .cart-btn{
         padding: 5px 10px;
         border: 1px white;
-        border-radius: 5px;
+        border-radius: 0;
         font-size: medium;
         background-color: lightseagreen;
         color: white;
         }
-
+        .danger-btn{
+            padding: 5px 10px;
+            border: 1px white;
+            border-radius: 0px;
+            font-size: medium;
+            background-color: rgb(221, 96, 96);
+            color: white;
+            }
 .image{
     height: 50px;
     width:50px;

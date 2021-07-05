@@ -24,8 +24,8 @@
 }
 .btn-custom{
   padding: 0px 10px;
-  border: 1px white;
-  border-radius: 5px;
+ 
+  border-color:  lightseagreen;
   font-size: medium;
   background-color: white;
    color: lightseagreen;

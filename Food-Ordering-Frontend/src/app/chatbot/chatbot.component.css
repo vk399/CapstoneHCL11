@@ -1,4 +1,14 @@
 .chat{
-    padding:4% 3%;
-    align-content: center;
+   display: flex;
+   padding: 0 25PX;
+   justify-content: center;
+   color: white;
+   position:relative;
+
+  
+}
+iframe{
+   border-radius: 12px;
+   border-color: lightseagreen;
+   box-shadow: 5px 5px rgb(32, 178, 170)
 }
